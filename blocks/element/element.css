@@ -1,0 +1,17 @@
+.element {
+  width: 282px;
+  height: 361px;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+}
+
+@media screen and (max-width: 320px) {
+  .element {
+    margin: 36px auto 20px;
+  }
+
+  .element:last-of-type {
+    margin-bottom: 48px;
+  }
+}

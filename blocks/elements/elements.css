@@ -1,0 +1,15 @@
+.elements {
+  width: 882px;
+  height: 744px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  margin: 50px auto 66px;
+}
+
+@media screen and (max-width: 320px) {
+  .elements {
+    display: inline;
+  }
+}

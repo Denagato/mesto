@@ -1,0 +1,23 @@
+.popup__close-image {
+  position: absolute;
+  width: 41px;
+  height: 41px;
+  top: -32px;
+  right: -30px;
+  transform: opacity .8s ease-in;
+}
+
+.popup__close-image:hover {
+  opacity: .5;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media screen and (max-width: 320px) {
+  .popup__close-image {
+    width: 26px;
+    height: 26px;
+    top: -39px;
+    right: 0;
+  }
+}
