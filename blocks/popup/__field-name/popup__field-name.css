@@ -1,6 +1,6 @@
 .popup__field-name {
   border: none;
-  border-bottom: 1px solid #545454;
+  border-bottom: 1px solid gray;
   width: 100%;
   margin-bottom: 30px;
   padding-bottom: 10px;

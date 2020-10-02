@@ -1,17 +1,16 @@
 let buttonOpenPopup = document.querySelector('.profile__info-button');
 let popup = document.querySelector('.popup');
-let buttonClosePopup = document.querySelector('.popup__close-image');
-let saveButton = document.querySelector('.popup__submit-button');
-let formElement = document.querySelector('.popup__container');
+let buttonClosePopup = document.querySelector('.popup__close');
+let formElement = document.querySelector('.popup__field');
 let formNameElement = document.querySelector('.popup__field-name');
 let formJobElement = document.querySelector('.popup__field-job')
 let nameInput = document.querySelector('.profile__name');
 let jobInput = document.querySelector('.profile__job');
 
 function popupOpen() {
-  popup.classList.add('popup_opened');
   nameInput.value = formNameElement.textContent;
   jobInput.value = formJobElement.textContent;
+  popup.classList.add('popup_opened');
 }
 
 function popupClose() {
