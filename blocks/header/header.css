@@ -2,6 +2,7 @@
   max-width: 882px;
   margin: 45px auto 40px;
   height: 74px;
+  border-bottom: 1px solid #545454;
 }
 
 @media screen and (max-width: 320px) {

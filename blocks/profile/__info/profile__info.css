@@ -1,13 +1,28 @@
 .profile__info {
   color: white;
-  width: 336px;
+  max-width: 336px;
   position: relative;
   margin-left: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 830px) {
+  .profile__info {
+    margin: 0;
+    margin-left: 20px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .profile__info {
+    margin: auto;
+  }
 }
 
 @media screen and (max-width: 320px) {
   .profile__info {
-    margin: 0;
-    max-width: 280px;
+    margin-top: 14px;
   }
 }
