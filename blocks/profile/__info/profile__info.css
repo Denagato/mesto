@@ -3,6 +3,7 @@
   max-width: 336px;
   position: relative;
   margin-left: 30px;
+  margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -18,11 +19,13 @@
 @media screen and (max-width: 580px) {
   .profile__info {
     margin: auto;
+    max-width: 210px;
   }
 }
 
 @media screen and (max-width: 320px) {
   .profile__info {
     margin-top: 14px;
+    max-width: 100%;
   }
 }
