@@ -1,9 +1,5 @@
 .elements {
   max-width: 882px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: space-around;
   margin: 50px auto 45px;
 }
 
