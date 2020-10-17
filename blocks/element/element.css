@@ -6,6 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 21px;
+  position: relative;
 }
 
 @media screen and (max-width: 320px) {
