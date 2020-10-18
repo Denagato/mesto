@@ -25,7 +25,6 @@ const popupImageCloseButton = document.querySelector('.popup__close-image');
 const popupImageLink = document.querySelector('.popup__image');
 const popupImageTitle = document.querySelector('.popup__image-title');
 
-//разметка карточек
 const initialCards = [
   {
     name: 'Архыз',
@@ -98,8 +97,13 @@ const getCards = (data) => {
 
     popupOpen(popupImage)
   });
-
   return card;
+};
+
+function addCard(event) {
+  event.preventDefault();
+  elements.prepend(getCards({name: titleInput.value, link: linkInput.value}));
+  popupClose(cardSubmitButton);
 };
 
 const renderCard = () => {
@@ -108,12 +112,6 @@ const renderCard = () => {
 };
 
 renderCard();
-
-function addCard(event) {
-  event.preventDefault();
-  cardSection.prepend(getCards({name: titleInput.value, link: linkInput.value}));
-  popupClose(cardSubmitButton);
-};
 
 function popupProfileEdit() {
   popupOpen(popupProfile);

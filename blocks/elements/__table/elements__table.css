@@ -9,3 +9,9 @@
   grid-auto-rows: 361px;
   gap: 20px 18px;
 }
+
+@media screen and (max-width: 320px) {
+  .elements__table {
+    display: inline;
+  }
+}
