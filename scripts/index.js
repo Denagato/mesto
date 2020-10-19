@@ -52,16 +52,16 @@ const initialCards = [
   }
 ];
 
-function popupOpenClose(popup) {
+function popupToggle(popup) {
   popup.classList.toggle('popup_opened');
 }
 
 function popupCardEdit() {
-  popupOpenClose(popupCard);
+  popupToggle(popupCard);
 }
 
 function popupCardClose() {
-  popupOpenClose(popupCardCloseButton);
+  popupToggle(popupCardCloseButton);
 }
 
 function cardLike(event) {
@@ -91,7 +91,7 @@ const createCard = (data) => {
     popupImageLink.alt = event.target.alt;
     popupImageTitle.textContent = event.target.alt;
 
-    popupOpenClose(popupImage)
+    popupToggle(popupImage)
   });
   return card;
 };
@@ -99,7 +99,7 @@ const createCard = (data) => {
 function addCard(event) {
   event.preventDefault();
   elements.prepend(createCard({name: titleInput.value, link: linkInput.value}));
-  popupOpenClose(cardSubmitButton);
+  popupToggle(cardSubmitButton);
 };
 
 const renderCard = () => {
@@ -110,7 +110,7 @@ const renderCard = () => {
 renderCard();
 
 function popupProfileEdit() {
-  popupOpenClose(popupProfile);
+  popupToggle(popupProfile);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
 }
@@ -119,15 +119,15 @@ function formSubmitHandler(event) {
   event.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  popupOpenClose(popupProfileCloseButton);
+  popupToggle(popupProfileCloseButton);
 }
 
 profileField.addEventListener('submit', formSubmitHandler);
 cardField.addEventListener('submit', addCard);
 popupProfileOpenButton.addEventListener('click', popupProfileEdit);
-popupProfileCloseButton.addEventListener('click', () => popupOpenClose(popupProfile));
-profileSubmitButton.addEventListener('click', () => popupOpenClose(popupProfile))
+popupProfileCloseButton.addEventListener('click', () => popupToggle(popupProfile));
+profileSubmitButton.addEventListener('click', () => popupToggle(popupProfile))
 popupCardOpenButton.addEventListener('click', popupCardEdit);
-popupCardCloseButton.addEventListener('click', () => popupOpenClose(popupCard));
-cardSubmitButton.addEventListener('click', () => popupOpenClose(popupCard));
-popupImageCloseButton.addEventListener('click', () => popupOpenClose(popupImage));
+popupCardCloseButton.addEventListener('click', () => popupToggle(popupCard));
+cardSubmitButton.addEventListener('click', () => popupToggle(popupCard));
+popupImageCloseButton.addEventListener('click', () => popupToggle(popupImage));
