@@ -52,20 +52,16 @@ const initialCards = [
   }
 ];
 
-function popupOpen(popup) {
-  popup.classList.add('popup_opened');
-}
-
-function popupClose(popup) {
-  popup.classList.remove('popup_opened');
+function popupOpenClose(popup) {
+  popup.classList.toggle('popup_opened');
 }
 
 function popupCardEdit() {
-  popupOpen(popupCard);
+  popupOpenClose(popupCard);
 }
 
 function popupCardClose() {
-  popupClose(popupCardCloseButton);
+  popupOpenClose(popupCardCloseButton);
 }
 
 function cardLike(event) {
@@ -76,7 +72,7 @@ function cardDelete(event) {
   event.target.closest('.element').remove();
 }
 
-const getCards = (data) => {
+const createCard = (data) => {
   const card = template.content.cloneNode(true);
   const elementTitle = card.querySelector('.element__title');
   const elementImage = card.querySelector('.element__image');
@@ -95,26 +91,26 @@ const getCards = (data) => {
     popupImageLink.alt = event.target.alt;
     popupImageTitle.textContent = event.target.alt;
 
-    popupOpen(popupImage)
+    popupOpenClose(popupImage)
   });
   return card;
 };
 
 function addCard(event) {
   event.preventDefault();
-  elements.prepend(getCards({name: titleInput.value, link: linkInput.value}));
-  popupClose(cardSubmitButton);
+  elements.prepend(createCard({name: titleInput.value, link: linkInput.value}));
+  popupOpenClose(cardSubmitButton);
 };
 
 const renderCard = () => {
-  const cards = initialCards.map(element => getCards(element));
+  const cards = initialCards.map(element => createCard(element));
   elements.prepend(...cards);
 };
 
 renderCard();
 
 function popupProfileEdit() {
-  popupOpen(popupProfile);
+  popupOpenClose(popupProfile);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
 }
@@ -123,15 +119,15 @@ function formSubmitHandler(event) {
   event.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  popupClose(popupProfileCloseButton);
+  popupOpenClose(popupProfileCloseButton);
 }
 
 profileField.addEventListener('submit', formSubmitHandler);
 cardField.addEventListener('submit', addCard);
 popupProfileOpenButton.addEventListener('click', popupProfileEdit);
-popupProfileCloseButton.addEventListener('click', () => popupClose(popupProfile));
-profileSubmitButton.addEventListener('click', () => popupClose(popupProfile))
+popupProfileCloseButton.addEventListener('click', () => popupOpenClose(popupProfile));
+profileSubmitButton.addEventListener('click', () => popupOpenClose(popupProfile))
 popupCardOpenButton.addEventListener('click', popupCardEdit);
-popupCardCloseButton.addEventListener('click', () => popupClose(popupCard));
-cardSubmitButton.addEventListener('click', () => popupClose(popupCard));
-popupImageCloseButton.addEventListener('click', () => popupClose(popupImage));
+popupCardCloseButton.addEventListener('click', () => popupOpenClose(popupCard));
+cardSubmitButton.addEventListener('click', () => popupOpenClose(popupCard));
+popupImageCloseButton.addEventListener('click', () => popupOpenClose(popupImage));
