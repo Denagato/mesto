@@ -32,8 +32,10 @@
         <button class="popup__close popup__close_profile" type="button"></button>
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="popup__field popup__field_profile" method="POST" name="formElement">
-          <input class="popup__field-name" type="text" name="name">
-          <input class="popup__field-job" type="text" name="job">
+          <input required autocomplete="off" class="popup__input popup__field-name" id="input-name" minlength="2" maxlength="40" type="text" name="name">
+          <span id="input-name-error" class="error"></span>
+          <input required autocomplete="off" class="popup__input popup__field-job" id="input-job" minlength="2" maxlength="200" type="text" name="job">
+          <span id="input-job-error" class="error"></span>
           <button class="popup__submit-button popup__submit-button_profile" type="submit">Сохранить</button>
         </form>
       </div>
@@ -43,8 +45,10 @@
         <button class="popup__close popup__close_card" type="button"></button>
         <h3 class="popup__title">Новое место</h3>
         <form class="popup__field popup__field_card" method="POST" name="formElement">
-          <input class="popup__field-title" type="text" name="title" placeholder="Название">
-          <input class="popup__field-link" type="link" name="link" placeholder="Ссылка на картинку">
+          <input required autocomplete="off" class="popup__input popup__field-title" id="input-title" minlength="2" maxlength="30" type="text" name="title" placeholder="Название">
+          <span id="input-title-error" class="error"></span>
+          <input required autocomplete="off" class="popup__input popup__field-link" id="input-link" type="url" name="link" placeholder="Ссылка на картинку">
+          <span id="input-link-error" class="error"></span>
           <button class="popup__submit-button popup__submit-button_card" type="submit">Создать</button>
         </form>
       </div>
@@ -57,6 +61,7 @@
       </div>
     </div>
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validate.js" defer></script>
     <template id="template">
       <li class="element">
         <button class="element__delete" type="button"></button>
