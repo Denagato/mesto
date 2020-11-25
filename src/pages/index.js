@@ -14,15 +14,12 @@ import {
   profileField,
   nameInput,
   jobInput,
-  profileName,
-  profileJob,
   popupCardOpenButton,
   popupCard,
   cardField,
   titleInput,
   linkInput,
   elements,
-  cardSubmitButton
 } from '../utils/utils.js'
 
 import './index.css';
@@ -80,15 +77,16 @@ const cardValidation = new FormValidator(validationElements, cardField);
 cardValidation.enableValidation();
 
 popupProfileOpenButton.addEventListener('click', () => {
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
+  const newUserInfo = userInfo.getUserInfo();
+  nameInput.value = newUserInfo.userName;
+  jobInput.value = newUserInfo.userInfo;
+  profileValidation.disableButton();
   popupFormEdit.open();
 });
 
 popupCardOpenButton.addEventListener('click', () => {
   titleInput.value = '';
   linkInput.value = '';
-  cardSubmitButton.classList.add('popup__submit-button_invalid');
-  cardSubmitButton.setAttribute('disabled', 'true');
+  cardValidation.disableButton();
   popupFormAdd.open();
 });

@@ -6,15 +6,12 @@ export const popupProfile = document.querySelector('.popup_profile');
 export const profileField = document.querySelector('.popup__field_profile');
 export const nameInput = document.querySelector('.popup__field-name');
 export const jobInput = document.querySelector('.popup__field-job')
-export const profileName = document.querySelector('.profile__name');
-export const profileJob = document.querySelector('.profile__job');
 export const popupCardOpenButton = document.querySelector('.profile__add-button');
 export const popupCard = document.querySelector('.popup_add-card');
 export const cardField = document.querySelector('.popup__field_card');
 export const titleInput = document.querySelector('.popup__field-title');
 export const linkInput = document.querySelector('.popup__field-link');
 export const elements = document.querySelector('.elements__table');
-export const cardSubmitButton = document.querySelector('.popup__submit-button_card');
 
 export const initialCards = [
   {
