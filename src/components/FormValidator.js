@@ -25,9 +25,13 @@ export default class FormValidator {
       this._buttonElement.classList.remove(this._elements.inactiveButtonClass);
       this._buttonElement.disabled = false;
     } else {
-      this._buttonElement.classList.add(this._elements.inactiveButtonClass);
-      this._buttonElement.disabled = true;
+      this.disableButton();
     }
+  }
+
+  disableButton() {
+    this._buttonElement.classList.add(this._elements.inactiveButtonClass);
+    this._buttonElement.disabled = true;
   }
 
   _checkInputValidation(input) {
