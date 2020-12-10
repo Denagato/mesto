@@ -11,7 +11,10 @@
     </header>
     <main>
       <section class="profile">
-        <img class="profile__avatar" src="<%=require('./images/kusto.png')%>" alt="Кусто">
+        <div class="profile__avatar-field">
+          <img class="profile__avatar" src="<%=require('./images/kusto.png')%>" alt="Фото">
+          <button class="profile__avatar-button"></button>
+        </div>
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <button class="profile__info-button" type="button"></button>
@@ -30,7 +33,7 @@
       <div class="popup__container popup__container_profile">
         <button class="popup__close popup__close_profile" type="button"></button>
         <h3 class="popup__title">Редактировать профиль</h3>
-        <form class="popup__field popup__field_profile" method="POST" name="formElementProfile">
+        <form class="popup__field popup__field_profile" method="GET" name="formElementProfile">
           <input required autocomplete="off" class="popup__input popup__field-name" id="input-name" minlength="2" maxlength="40" type="text" name="name">
           <span id="input-name-error" class="error"></span>
           <input required autocomplete="off" class="popup__input popup__field-job" id="input-job" minlength="2" maxlength="200" type="text" name="job">
@@ -43,7 +46,7 @@
       <div class="popup__container popup__container_add-card">
         <button class="popup__close popup__close_card" type="button"></button>
         <h3 class="popup__title">Новое место</h3>
-        <form class="popup__field popup__field_card" method="POST" name="formElementCard">
+        <form class="popup__field popup__field_card" method="GET" name="formElementCard">
           <input required autocomplete="off" class="popup__input popup__field-title" id="input-title" minlength="2" maxlength="30" type="text" name="title" placeholder="Название">
           <span id="input-title-error" class="error"></span>
           <input required autocomplete="off" class="popup__input popup__field-link" id="input-link" type="url" name="link" placeholder="Ссылка на картинку">
@@ -59,13 +62,37 @@
         <h3 class="popup__image-title"></h3>
       </div>
     </div>
+    <div class="popup popup_image-delete">
+      <div class="popup__container popup__container_delete-image">
+        <button class="popup__close popup__close-image-delete" type="button"></button>
+        <form class="popup__field popup__field-image-delete" name="formElementDeleteImage" method="GET">
+          <h3 class="popup__title_delete-image">Вы уверены?</h3>
+          <button class="popup__submit-button popup__submit-button-image-delete" type="submit" name="submit">Да</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_avatar-edit">
+      <div class="popup__container popup__container_avatar-edit">
+        <button class="popup__close popup__close-avatar-edit" type="button"></button>
+        <form class="popup__field popup__field-avatar-edit" name="formAvatarEdit" method="GET">
+          <h3 class="popup__title_avatar-edit">Обновить аватар</h3>
+          <input required autocomplete="off" class="popup__input popup__field_avatar-edit" type="url" name="avatar" placeholder="Ссылка на аватар"
+                 id="input-avatar">
+          <span class="error" id="input-avatar-error"></span>
+          <button class="popup__submit-button popup__submit-button_avatar" type="submit" name="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
     <template id="template">
       <li class="element">
         <button class="element__delete" type="button"></button>
         <img class="element__image" src="" alt="Фото">
         <div class="element__sign">
           <h2 class="element__title"></h2>
-          <button class="element__like" type="button"></button>
+          <div class="element__like-field">
+            <button class="element__like" type="button"></button>
+            <p class="element__like-number"></p>
+          </div>
         </div>
       </li>
     </template>
