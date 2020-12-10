@@ -4,9 +4,11 @@ export default class PopupWithForm extends Popup {
   constructor(popupSelector, submitCallback) {
     super(popupSelector);
     this._submitCallback = submitCallback;
+    this._button = this._popup.querySelector('.popup__submit-button');
+    this._buttonText = this._button.textContent;
   }
 
-  _getInputValues() {
+  getInputValues() {
     this._inputList = this._popup.querySelectorAll('.popup__input');
     const formValues = {};
     this._inputList.forEach(element => {
@@ -16,12 +18,20 @@ export default class PopupWithForm extends Popup {
     return formValues;
   }
 
+  renderLoading(isLoading) {
+    if(isLoading) {
+      this._button.textContent = 'Сохранение...';
+    } else {
+      this._button.textContent = this._buttonText;
+    }
+  }
+
   setEventListeners() {
     super.setEventListeners();
     this._form = this._popup.querySelector('.popup__field');
     this._form.addEventListener('submit', (event) => {
       event.preventDefault();
-      this._submitCallback(this._getInputValues());
+      this._submitCallback(this.getInputValues());
     });
   }
 
