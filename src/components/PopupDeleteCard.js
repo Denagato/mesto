@@ -20,8 +20,8 @@ export default class PopupDeleteCard extends Popup {
       this._api.deleteCard(this._card._id)
         .then(() => {
           this._card.handleDelete();
+          this.close();
         });
-      this.close();
     }
     this._formElement.addEventListener('submit', deleteHandler.bind(this));
   }
